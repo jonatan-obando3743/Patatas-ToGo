@@ -7,7 +7,7 @@ import { ListSubscribersComponent } from './list-subscribers/list-subscribers.co
 const routes: Routes = [
   { path: 'list', component: ListSubscribersComponent },
   { path: 'create', component: CreateSubscribersComponent },
-  //{ path: '**', pathMatch: '**', redirectTo: '/users/list' },
+  { path: '**', pathMatch: 'full', redirectTo: '/users/list' },
 ];
 
 @NgModule({

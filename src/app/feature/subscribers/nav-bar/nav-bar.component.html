@@ -18,7 +18,7 @@
         <a class="nav-link" id="nav-bar__btn-create-user" [routerLink]="['/users/list']">list users</a>
       </li>
       <li>
-      <a class="nav-link" id="nav-bar__btn-logout" [routerLink]="['/login']">log out</a>
+      <a class="nav-link" id="nav-bar__btn-logout" (click)="logout()" [routerLink]="['/login']">log out</a>
     </li>
     </ul>
     </div>

@@ -18,7 +18,11 @@ export class ListSubscribersComponent implements OnInit {
   constructor(private readonly service: SubscribersService) {}
 
   ngOnInit() {
-    this.array = this.service.getUsers().subscribe((x) => {this.array = x.data;}); 
+    this.array = this.service.getUsers().subscribe((x) => {this.array = x.Data}); 
+    setTimeout(() => {
+      console.log(this.array)
+    }, 1500);
+   
   }
  
 

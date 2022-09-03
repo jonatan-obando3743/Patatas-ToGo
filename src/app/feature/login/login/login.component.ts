@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   valorPassword = true;
 
   loginForm = new FormGroup({
-    email: new FormControl(null, [Validators.required, Validators.minLength(8)]),
-    Password: new FormControl('', [Validators.required, Validators.minLength(6)])
+    email: new FormControl(null, [Validators.required]),
+    Password: new FormControl('', [Validators.required])
   });
 
   constructor(private readonly router: Router,
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
     }
   ngOnInit(): void {
-    localStorage.setItem("token", 'QpwL5tke4Pnpja7X4')
+    
   }
 
   /**
@@ -54,12 +54,12 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.redirectUsers();
       const ObjUser ={
-        'email' : this.loginForm.value.email,
-        'password': this.loginForm.value.Password
+        'UserName' : this.loginForm.value.email,
+        'Password': this.loginForm.value.Password
       }
-      
-     this.service.login(ObjUser).subscribe(data => {
-      localStorage.setItem("token", data.token)
+      console.log(ObjUser);
+      this.service.login(ObjUser).subscribe(data => {
+      localStorage.setItem("token", data.Token)
      })
     } else {  
       this.value();

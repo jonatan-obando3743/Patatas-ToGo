@@ -1,52 +1,32 @@
-<!--
-  Recuerde conservar los id, no deben ser modificados
-  ids = login__email, login__password, login__password-error, login__email-error, login__btn-login
--->
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <form [formGroup]="loginForm" >
+            <div class="mb-md-5 mt-md-4 pb-5">
 
-<div class="mb-20 ml-15">
-  <div class="mx-auto w-50">
+              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+              <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
-    <div class="card">
+              <div class="form-outline form-white mb-4">
+                <input type="email" id="typeEmailX" formControlName="email" class="form-control form-control-lg" />
+                <label class="form-label" for="typeEmailX">Email</label>
+              </div>
 
-      <section class="layout-row justify-content-around align-items-center">
-        <div>
-          <h3 class="mt-0 mb-0">Login</h3>
+              <div class="form-outline form-white mb-4">
+                <input type="password" id="typePasswordX" formControlName="Password" class="form-control form-control-lg" />
+                <label class="form-label" for="typePasswordX">Password</label>
+              </div>
+
+              <button class="btn btn-outline-light btn-lg px-5" (click)="submit()" type="submit">Login</button>
+
+            </div>
+            </form>
+          </div>
         </div>
-      </section>
-      <form [formGroup]="loginForm" >
-        <div class="text-center">
-          <section class="text-box">
-            <section class="layout-row align-items-start justify-content-center">
-              <label>
-                <input id="login__email" type="email" class="white large outlined" formControlName="email"
-                  placeholder="Name">
-
-              </label>
-              <Span class="alert error" id="login__email-error" [hidden]="valorEmail">
-                Email is required
-              </Span>
-            </section>
-            <br />
-            <section class="layout-row align-items-start justify-content-center">
-              <label>
-                <input type="password" id="login__password" class="white large outlined" formControlName="Password"
-                  placeholder="Password">
-
-              </label>
-              <span class="alert error" id="login__password-error" [hidden]="valorPassword">
-                Password is required 
-                The minimum of characters will be 8
-              </span>
-            </section>
-
-            <br />
-          </section>
-
-          <section class="card-actions-center">
-            <button type="submit" id="login__btn-login" (click)="submit()" >save</button>
-          </section>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
-</div>
+</section>

@@ -4,20 +4,12 @@
   Remplazar [index] por el valor ejemplo "user-list__table-item-0"
 -->
 
-<div class="card w-50 mx-auto pb-30">
-  <div class="form-group">
-    <input type="text" id="user-list__filter"  class="forms-control" placeholder="Buscar.."
-      name="filterPost" />
-  </div>
-  <div class="alert" [hidden]="bolDivAlert">
-    <div *ngFor="let item of objectDelet">
-      <div> {{ item.first_name }} {{ item.last_name }} was deleted</div>
-    </div>
-  </div>
-  <table id="user-list__table">
+<div class="card w-50 mx-auto pb-50">
+  
+  <table id="user-list__table" class="table table-dark table-striped">
     <thead>
       <tr>
-        <th class="sortable">Face</th>
+       
         <th class="sortable">Id</th>
         <th class="sortable">Email</th>
         <th class="sortable">Name</th>
@@ -27,10 +19,10 @@
 
     <tbody>
       <tr *ngFor="let index of array ">
-        <td [id]="'user-list__table-item-'+'{{index.id}}'">{{ index.id }}</td>
-        <td [id]="'user-list__table-item-'+'{{index.id}}'+'-avatar'"><img class="logo" [src]="index.avatar" /></td>
-        <td [id]="'user-list__table-item-'+'{{index.id}}'+'-email'">{{ index.email }}</td>
-        <td [id]="'user-list__table-item-'+'{{index.id}}'+'-first_name'">{{ index.first_name }}</td>
+        <td [id]="'user-list__table-item-'+'{{index.id}}'">{{ index.Id }}</td>
+        <td [id]="'user-list__table-item-'+'{{index.id}}'">{{ index.Name }}</td>
+        <td [id]="'user-list__table-item-'+'{{index.id}}'">{{ index.Email }}</td>
+   
         <td>
           <button mat-fab [id]="'user-list__table-item-'[index.id]+'-btn-delete'" color="primary"
             (click)="idExiste(index.id)" aria-label="Example icon button with a delete icon">

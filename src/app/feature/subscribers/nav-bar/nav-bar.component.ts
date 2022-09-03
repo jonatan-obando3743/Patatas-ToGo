@@ -22,11 +22,8 @@ export class NavBarComponent implements OnInit {
     this.router.navigateByUrl( '/users/create');
   }
  
-
-  /**
-   * Este método no se puede modificar
-   * */
   public logout(): void {
+    localStorage.removeItem('token');
     this.router.navigateByUrl('/login');  
   }
   

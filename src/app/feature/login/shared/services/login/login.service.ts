@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const urlAPI = 'https://reqres.in/api/'
+const urlAPI = 'https://lab.invertebrado.co/api/'
 
 interface getApi{
-  name: string,
-  password: number,
+  UserName: string,
+  Password: number,
 }
 
 interface responseI{
-  token: string
+  Token: string
 }
 @Injectable({
   providedIn: 'root',
@@ -23,8 +23,8 @@ export class LoginService {
   /**
   * El nombre de este metodo no debería ser cambiado, pero de ser necesario podrías cambiar la firma
    * */
-  public login(forms: { email: null | undefined; password: string | null | undefined; }):Observable<responseI> {
-    let api = urlAPI + 'login';
+  public login(forms: { UserName: null | undefined; Password: string | null | undefined; }):Observable<responseI> {
+    let api = urlAPI + 'account/login';
     return this.http.post<any>(api, forms);
 
   }
