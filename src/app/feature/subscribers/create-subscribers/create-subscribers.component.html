@@ -1,0 +1,55 @@
+<!--
+  Recuerde conservar los id, no deben ser modificados
+  ids = user-create__name, user-create__name-error, user-create__job, user-create__job-error, user-create__btn-create
+-->
+
+<div class="mb-20 ml-15">
+<div class="mx-auto w-50">
+  <div>
+    <div class="card">
+      <section class="layout-row justify-content-around align-items-center">
+       <div>
+         <h3 class="mt-0 mb-0"></h3>
+       </div>
+      </section>
+     <form >
+      <div class="alert info" [hidden]="infCreate">
+        {{Obje}}
+      </div>
+     <div class="text-center">
+      <section class="text-box">
+        <section class="layout-row align-items-start justify-content-center">
+          <label>
+            <input type="text"  id="user-create__name" class="white large outlined" formControlName="Name" placeholder="Name">
+          </label>
+          <div *ngIf="profileForm.value.Name === ''" id="user-create__name-error" class="alert error"   >
+            Name is required
+          </div>
+        </section>
+        <br>
+        
+        <section class="layout-row align-items-start justify-content-center">
+          <label>
+            <input type="text" id="user-create__job" class="white large outlined" formControlName="Job" placeholder="Job" >
+
+          </label>
+        <div>
+            <div *ngIf="profileForm.value.Job === ''" id="user-create__job-error" class="alert error" > 
+            Job is required
+          </div>
+        </div>
+        </section>
+        <br>
+      </section>
+      <section class="card-actions-center">
+        <button id="user-create__btn-create" (click)="creacteNewUser()" type="button" [disabled]="!profileForm.valid">
+          Save
+        </button>
+      </section>
+     </div>
+    </form>
+
+     </div>
+    </div>
+  </div>
+

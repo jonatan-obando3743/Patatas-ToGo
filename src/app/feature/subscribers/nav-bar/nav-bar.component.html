@@ -1,0 +1,26 @@
+<!--
+  Recuerde conservar los id, no deben ser modificados
+  ids = nav-bar__btn-list-user, nav-bar__btn-create-user, nav-bar__btn-logout
+-->
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+      <li>
+        <a rel="next" id="nav-bar__btn-list-user" class="nav-link" [routerLink]="['/users/create']">create </a>
+      </li>
+      <li >
+        <a class="nav-link" id="nav-bar__btn-create-user" [routerLink]="['/users/list']">list users</a>
+      </li>
+      <li>
+      <a class="nav-link" id="nav-bar__btn-logout" [routerLink]="['/login']">log out</a>
+    </li>
+    </ul>
+    </div>
+  </div>
+</nav>

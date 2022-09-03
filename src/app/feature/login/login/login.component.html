@@ -1,0 +1,52 @@
+<!--
+  Recuerde conservar los id, no deben ser modificados
+  ids = login__email, login__password, login__password-error, login__email-error, login__btn-login
+-->
+
+<div class="mb-20 ml-15">
+  <div class="mx-auto w-50">
+
+    <div class="card">
+
+      <section class="layout-row justify-content-around align-items-center">
+        <div>
+          <h3 class="mt-0 mb-0">Login</h3>
+        </div>
+      </section>
+      <form [formGroup]="loginForm" >
+        <div class="text-center">
+          <section class="text-box">
+            <section class="layout-row align-items-start justify-content-center">
+              <label>
+                <input id="login__email" type="email" class="white large outlined" formControlName="email"
+                  placeholder="Name">
+
+              </label>
+              <Span class="alert error" id="login__email-error" [hidden]="valorEmail">
+                Email is required
+              </Span>
+            </section>
+            <br />
+            <section class="layout-row align-items-start justify-content-center">
+              <label>
+                <input type="password" id="login__password" class="white large outlined" formControlName="Password"
+                  placeholder="Password">
+
+              </label>
+              <span class="alert error" id="login__password-error" [hidden]="valorPassword">
+                Password is required 
+                The minimum of characters will be 8
+              </span>
+            </section>
+
+            <br />
+          </section>
+
+          <section class="card-actions-center">
+            <button type="submit" id="login__btn-login" (click)="submit()" >save</button>
+          </section>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
