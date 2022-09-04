@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, NgForm, FormControl } from '@angular/forms';
 import { LoginService } from '../shared/services/login/login.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(private readonly router: Router,
-    private service: LoginService) {
+    private service: LoginService,
+    private translate: TranslateService,) {
 
     }
   ngOnInit(): void {

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { CreateSubscribersComponent } from './create-subscribers/create-subscribers.component';
 import { HomeSubscribersComponent } from './home-subscribers/home-subscribers.component';
 import { ListSubscribersComponent } from './list-subscribers/list-subscribers.component';
@@ -18,7 +19,8 @@ import { SubscribersRoutingModule} from './subscribers-routing.module';
         RouterModule,
         CommonModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        TranslateModule
     ]
 })
 export class subscribersModule {

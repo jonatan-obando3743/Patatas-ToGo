@@ -1,0 +1,31 @@
+{
+    
+   "Hello":"Hola",
+    "Please enter your login and password!": "¡Por favor, introduce tu usuario y contraseña!",
+    "Email": "Correo Electronico",
+    "Password": "contraseña",
+    "Login": "Iniciar Sesión",
+    "invalid credentials": "credenciales no válidas",
+
+
+    "new Subscriber": "Nuevo Suscriptor",
+    "Name": "Nombre",
+    "Contry Code": "Código de país",
+    "Contry Name": "Nombre del país",
+    "Phone code": "código de teléfono",
+    "phome Number": "Numero de teléfono",
+    "Job Title": "Título profesional",
+    "Area": "Area",
+    "Register": "Registro",
+
+    "Create": "crear",
+    "list Subscribers": "lista de suscriptores",
+    "Log out": "Cerrar sesión",
+
+    "Delete":"Borrar",
+    "Option":"Opción"
+
+
+
+
+}

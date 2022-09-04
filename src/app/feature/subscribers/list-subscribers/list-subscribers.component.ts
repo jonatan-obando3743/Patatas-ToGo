@@ -1,3 +1,4 @@
+import { Xmb } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { SubscribersService } from '../create-subscribers/shared/services/subscribers/subscribers.service';
 
@@ -33,9 +34,16 @@ export class ListSubscribersComponent implements OnInit {
   }
 
   deleteContact(Id: number) {
-    this.array = this.array.filter(((item: any) => item.Id !== Id));
-    console.log(Id)
-    this.service.deleteUserForIndex(Id).subscribe();
+   
+    var resultado = window.confirm('Estas seguro?');
+      if (resultado === true) {
+        this.array = this.array.filter((x:any)=> x.Id === Id)
+        this.service.deleteUserForIndex(Id).subscribe();    
+
+      } else {
+        window.alert('Pareces indeciso');
+      }
+   
   }
 }
 

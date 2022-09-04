@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { SubscribersService } from './shared/services/subscribers/subscribers.service';
 
 
@@ -28,13 +29,15 @@ export class CreateSubscribersComponent implements OnInit {
 
   constructor(
     private readonly service: SubscribersService,
-    private readonly router: Router
+    private readonly router: Router,
+    private translate: TranslateService,
   ) {
   }
   ngOnInit(): void {
     //throw new Error('Method not implemented.');
   }
   onSubmit(){
+    
       const Object = {
         
         'Subscribers': [
@@ -51,8 +54,13 @@ export class CreateSubscribersComponent implements OnInit {
           }
           ]   
       };
-      this.service.createSubcribers(Object).subscribe();
-      console.log(Object)
+      var resultado = window.confirm('Estas seguro?');
+      if (resultado === true) {
+        this.service.createSubcribers(Object).subscribe();
+        console.log(Object);
+      } else {
+        window.alert('Pareces indeciso');
+      }
   }
 
  creacteNewUser(){
