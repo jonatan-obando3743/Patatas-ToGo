@@ -31,12 +31,12 @@ export class SubscribersService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<any> {
-    console.log(httpHeaders)
+   
     return  this.http.get<any>(urlAPI + "subscribers/", {headers: httpHeaders});
   }
 
   createUser(body:{}): Observable<any> {
-    console.log(httpHeaders)
+    
     return this.http.post<any>(urlAPI, {headers: httpHeaders, observable:'response'}, body);
  
   }

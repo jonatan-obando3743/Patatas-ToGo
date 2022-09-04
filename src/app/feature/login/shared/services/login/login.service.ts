@@ -10,7 +10,8 @@ interface getApi{
 }
 
 interface responseI{
-  Token: string
+  Token: string,
+  Status: number
 }
 @Injectable({
   providedIn: 'root',

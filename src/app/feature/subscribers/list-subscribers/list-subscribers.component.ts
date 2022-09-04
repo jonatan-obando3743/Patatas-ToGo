@@ -18,9 +18,8 @@ export class ListSubscribersComponent implements OnInit {
   constructor(private readonly service: SubscribersService) {}
 
   ngOnInit() {
-    this.array = this.service.getUsers().subscribe((x) => {this.array = x.Data}); 
+    this.service.getUsers().subscribe((x) => {this.array = x.Data}); 
     setTimeout(() => {
-      console.log(this.array)
     }, 1500);
    
   }
@@ -28,20 +27,15 @@ export class ListSubscribersComponent implements OnInit {
 
   idExiste(id: number) {
    // this.objectDelet = this.array.filter((item) => item.id === id);
-    if (this.array.includes(this.objectDelet[0])) {
+    
       this.deleteContact(id);
-    } else {
-    } 
+    
   }
 
-  deleteContact(id: number) {
-    //this.objectDelet = this.array.filter((item) => item.id === id);
-    this.bolDivAlert = false;
-    setTimeout(() => {
-      this.bolDivAlert = true;
-    }, 1500);
-    //this.array = this.array.filter((item) => item.id !== id);
-    this.service.deleteUserForIndex(id).subscribe();
+  deleteContact(Id: number) {
+    this.array = this.array.filter(((item: any) => item.Id !== Id));
+    console.log(Id)
+   // this.service.deleteUserForIndex(id).subscribe();
   }
 }
 

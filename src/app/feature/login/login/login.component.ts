@@ -28,41 +28,27 @@ export class LoginComponent implements OnInit {
   /**
    * Login
    */
-  public value() {
-    if(!this.loginForm.status){
-    }else{
-      if (this.loginForm.controls.email.invalid) {
-
-        this.valorEmail = false;
-        localStorage.removeItem('token');
-
-      } else {
-        this.valorEmail = true;
-      }
-      if (this.loginForm.controls.Password.invalid) {
-        this.valorPassword = false;
-        localStorage.removeItem('token');
-
-      } else {
-        this.valorPassword = true;
-      }
-    }
-    
-  }
 
   submit() {
     if (this.loginForm.valid) {
-      this.redirectUsers();
       const ObjUser ={
         'UserName' : this.loginForm.value.email,
         'Password': this.loginForm.value.Password
       }
-      console.log(ObjUser);
-      this.service.login(ObjUser).subscribe(data => {
-      localStorage.setItem("token", data.Token)
-     })
-    } else {  
-      this.value();
+     
+      this.service.login(ObjUser).subscribe(
+        (res : any) =>{
+          localStorage.setItem("token", res.Token)
+          this.redirectUsers();
+          
+        }, error => {
+          this.valorEmail = false
+        })
+        
+      
+      
+      
+     
     }
   }
   /**
