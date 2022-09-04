@@ -35,7 +35,7 @@ export class ListSubscribersComponent implements OnInit {
   deleteContact(Id: number) {
     this.array = this.array.filter(((item: any) => item.Id !== Id));
     console.log(Id)
-   // this.service.deleteUserForIndex(id).subscribe();
+    this.service.deleteUserForIndex(Id).subscribe();
   }
 }
 

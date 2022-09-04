@@ -35,14 +35,14 @@ export class SubscribersService {
     return  this.http.get<any>(urlAPI + "subscribers/", {headers: httpHeaders});
   }
 
-  createUser(body:{}): Observable<any> {
-    
-    return this.http.post<any>(urlAPI, {headers: httpHeaders, observable:'response'}, body);
+  createSubcribers(body:{}): Observable<any> {
+    console.log(body)
+    return this.http.post<any>(urlAPI + "subscribers/", body, {headers: httpHeaders});
  
   }
 
   deleteUserForIndex(index: number): Observable<any> {
-    return this.http.delete<any>(urlAPI + '/'  + index)
+    return this.http.delete<any>(urlAPI + 'subscribers/'  + index, {headers: httpHeaders} )
 
   }
 }

@@ -3,17 +3,18 @@
 <body>
   <section class="form-register">
     <h4>new subscriber</h4>
-    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Name">
-    <input class="controls" type="email" name="correo" id="correo" placeholder="Email">
-    <input class="controls" type="text" name="correo" id="correo" placeholder="Contry Code">
-    <input class="controls" type="text" name="correo" id="correo" placeholder="Contry Name">
-    <input class="controls" type="number" name="correo" id="correo" placeholder="Phone code">
-    <input class="controls" type="number" name="correo" id="correo" placeholder="phome Number">
-    <input class="controls" type="text" name="correo" id="correo" placeholder="Job Title">
-    <input class="controls" type="text" name="correo" id="correo" placeholder="Area">
+    <form [formGroup]="profileForm" >
+    <input class="controls"  formControlName="Name" type="text" name="nombres" id="nombres" placeholder="Name">
+    <input class="controls" formControlName="Email" type="email" name="correo" id="correo" placeholder="Email">
+    <input class="controls" formControlName="ContryCode" type="text" name="correo" id="correo" placeholder="Contry Code">
+    <input class="controls" formControlName="ContryName" type="text" name="correo" id="correo" placeholder="Contry Name">
+    <input class="controls" formControlName="Phonecode" type="text" name="correo" id="correo" placeholder="Phone code">
+    <input class="controls" formControlName="phomeNumber" type="number" name="correo" id="correo" placeholder="phome Number">
+    <input class="controls" formControlName="JobTitle" type="text" name="correo" id="correo" placeholder="Job Title">
+    <input class="controls" formControlName="Area" type="text" name="correo" id="correo" placeholder="Area">
 
-    <input class="botons" type="submit" value="Registrar">
-    
+    <input class="botons" type="submit" (click)="onSubmit()" value="Registrar">
+  </form>
   </section>
 
 </body>

@@ -16,7 +16,14 @@ export class CreateSubscribersComponent implements OnInit {
   Obje : any;
   profileForm = new FormGroup({
     Name: new FormControl('', [Validators.required]),
-    Job: new FormControl('', [Validators.required])
+    Email: new FormControl('', [Validators.required]),
+    ContryCode: new FormControl('', [Validators.required]),
+    ContryName: new FormControl('', [Validators.required]),
+    Phonecode: new FormControl('', [Validators.required]),
+    phomeNumber: new FormControl('', [Validators.required]),
+    JobTitle: new FormControl('', [Validators.required]),
+    Area: new FormControl('', [Validators.required])
+   
   })
 
   constructor(
@@ -28,7 +35,24 @@ export class CreateSubscribersComponent implements OnInit {
     //throw new Error('Method not implemented.');
   }
   onSubmit(){
-
+      const Object = {
+        
+        'Subscribers': [
+          {
+          'Name': this.profileForm.value.Name,
+          'Email': this.profileForm.value.Email,
+          'CountryCode': this.profileForm.value.ContryCode,
+          'CountryName': this.profileForm.value.ContryName,
+          'PhoneCode': this.profileForm.value.Phonecode,
+          'PhoneNumber': this.profileForm.value.phomeNumber,
+          'JobTitle': this.profileForm.value.JobTitle,
+          'Area': this.profileForm.value.Area,
+          'Topics': []
+          }
+          ]   
+      };
+      this.service.createSubcribers(Object).subscribe();
+      console.log(Object)
   }
 
  creacteNewUser(){
