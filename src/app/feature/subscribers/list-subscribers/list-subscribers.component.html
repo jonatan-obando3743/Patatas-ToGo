@@ -1,27 +1,30 @@
-
 <div class="card w-50 mx-auto pb-50">
-  
+
   <table id="user-list__table" class="table table-dark table-striped">
     <thead>
       <tr>
-       
+
         <th class="sortable">{{'Id'| translate}}</th>
         <th class="sortable">{{'Email'| translate}}</th>
         <th class="sortable">{{'Name'| translate}}</th>
-        <th class="sortable">{{'Option'| translate}}</th>
+        <th class="sortable">{{'Option '| translate}}</th>
       </tr>
     </thead>
 
     <tbody>
       <tr *ngFor="let index of array ">
-        <td >{{ index.Id }}</td>
-        <td >{{ index.Name }}</td>
-        <td >{{ index.Email }}</td>
-   
+        <td>{{ index.Id }}</td>
+        <td>{{ index.Name }}</td>
+        <td>{{ index.Email }}</td>
+
         <td>
-          <button mat-fab  color="primary"
-            (click)="idExiste(index.Id)" aria-label="Example icon button with a delete icon">
+          <button mat-fab color="primary" (click)="idExiste(index.Id)"
+            aria-label="Example icon button with a delete icon">
             {{'Delete'| translate}}
+          </button>
+          <button mat-fab color="primary" (click)="idEdit(index.Id)"
+            aria-label="Example icon button with a delete icon">
+            {{'Edit'| translate}}
           </button>
         </td>
       </tr>

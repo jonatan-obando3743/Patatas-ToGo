@@ -15,47 +15,37 @@ export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
     email: new FormControl(null, [Validators.required]),
-    Password: new FormControl('', [Validators.required])
+    Password: new FormControl('', [Validators.required]),
   });
 
-  constructor(private readonly router: Router,
+  constructor(
+    private readonly router: Router,
     private service: LoginService,
-    private translate: TranslateService,) {
+    private translate: TranslateService
+  ) {}
+  ngOnInit(): void {}
 
-    }
-  ngOnInit(): void {
-    
-  }
-
-  /**
-   * Login
-   */
+  
 
   submit() {
     if (this.loginForm.valid) {
-      const ObjUser ={
-        'UserName' : this.loginForm.value.email,
-        'Password': this.loginForm.value.Password
-      }
-     
+      const ObjUser = {
+        UserName: this.loginForm.value.email,
+        Password: this.loginForm.value.Password,
+      };
+
       this.service.login(ObjUser).subscribe(
-        (res : any) =>{
-          localStorage.setItem("token", res.Token)
+        (res: any) => {
+          localStorage.setItem('token', res.Token);
           this.redirectUsers();
-          
-        }, error => {
-          this.valorEmail = false
-        })
-        
-      
-      
-      
-     
+        },
+        (error) => {
+          this.valorEmail = false;
+        }
+      );
     }
   }
-  /**
-   * Este método no se puede modificar
-   * */
+  
   public redirectUsers(): void {
     this.router.navigateByUrl('/users/list');
   }

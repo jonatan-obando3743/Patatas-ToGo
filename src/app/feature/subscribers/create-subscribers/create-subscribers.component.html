@@ -1,20 +1,26 @@
-
-
-<body>
+<body [hidden]="!valorEmail">
   <section class="form-register">
     <h4>{{"new Subscriber"| translate}}</h4>
-    <form [formGroup]="profileForm" >
-    <input class="controls"  formControlName="Name" type="text" name="nombres" id="nombres" placeholder= "{{'Name'| translate}}" >
-    <input class="controls" formControlName="Email" type="email" name="correo" id="correo" placeholder=" {{'Email'| translate}}">
-    <input class="controls" formControlName="ContryCode" type="text" name="correo" id="correo" placeholder="{{'Contry Code'| translate}}">
-    <input class="controls" formControlName="ContryName" type="text" name="correo" id="correo" placeholder="{{'Contry Name'| translate}}">
-    <input class="controls" formControlName="Phonecode" type="text" name="correo" id="correo" placeholder="{{'Phone code'| translate}}">
-    <input class="controls" formControlName="phomeNumber" type="number" name="correo" id="correo" placeholder="{{'phome Number'| translate}}">
-    <input class="controls" formControlName="JobTitle" type="text" name="correo" id="correo" placeholder="{{'Job Title'| translate}}">
-    <input class="controls" formControlName="Area" type="text" name="correo" id="correo" placeholder="{{'Area'| translate}}">
+    <form [formGroup]="profileForm">
+      <input class="controls" formControlName="Name" type="text" name="nombres" id="nombres"
+        placeholder="{{'Name'| translate}}">
+      <input class="controls" formControlName="Email" type="email" name="correo" id="correo"
+        placeholder=" {{'Email'| translate}}">
+      <input class="controls" formControlName="ContryCode" type="text" name="correo" id="correo"
+        placeholder="{{'Contry Code'| translate}}">
+      <input class="controls" formControlName="ContryName" type="text" name="correo" id="correo"
+        placeholder="{{'Contry Name'| translate}}">
+      <input class="controls" formControlName="Phonecode" type="text" name="correo" id="correo"
+        placeholder="{{'Phone code'| translate}}">
+      <input class="controls" formControlName="phomeNumber" type="number" name="correo" id="correo"
+        placeholder="{{'phome Number'| translate}}">
+      <input class="controls" formControlName="JobTitle" type="text" name="correo" id="correo"
+        placeholder="{{'Job Title'| translate}}">
+      <input class="controls" formControlName="Area" type="text" name="correo" id="correo"
+        placeholder="{{'Area'| translate}}">
 
-    <input class="botons" type="submit" (click)="onSubmit()" value="Registrar">
-  </form>
+      <input class="botons" type="submit" (click)="onSubmit()" value="{{'Register'| translate}}">
+    </form>
   </section>
 
 </body>

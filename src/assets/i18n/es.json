@@ -16,14 +16,19 @@
     "phome Number": "Numero de teléfono",
     "Job Title": "Título profesional",
     "Area": "Area",
-    "Register": "Registro",
-
+    "Register": "Registrar",
+ 
+    "New Subscriber": "Nuevo Suscriptor",
     "Create": "crear",
     "list Subscribers": "lista de suscriptores",
     "Log out": "Cerrar sesión",
 
     "Delete":"Borrar",
-    "Option":"Opción"
+    "Option":"Opción",
+    "Edit": "Editar",
+
+    "Edit Subscriber": "Editar suscriptor"
+
 
 
 

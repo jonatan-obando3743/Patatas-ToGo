@@ -1,5 +1,6 @@
 import { Xmb } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SubscribersService } from '../create-subscribers/shared/services/subscribers/subscribers.service';
 
 
@@ -16,10 +17,11 @@ export class ListSubscribersComponent implements OnInit {
   bolDivAlert = true;
   arrayUsers: any;
 
-  constructor(private readonly service: SubscribersService) {}
+  constructor(private readonly service: SubscribersService,
+    private readonly router: Router,) {}
 
   ngOnInit() {
-    this.service.getUsers().subscribe((x) => {this.array = x.Data}); 
+    this.service.getListUsers().subscribe((x) => {this.array = x.Data}); 
     setTimeout(() => {
     }, 1500);
    
@@ -32,16 +34,18 @@ export class ListSubscribersComponent implements OnInit {
       this.deleteContact(id);
     
   }
+  idEdit(id: number) {
+    this.router.navigateByUrl('/users/edit/' + id);
+   }
 
   deleteContact(Id: number) {
    
     var resultado = window.confirm('Estas seguro?');
       if (resultado === true) {
-        this.array = this.array.filter((x:any)=> x.Id === Id)
+        this.array = this.array.filter((x:any)=> x.Id !== Id)
         this.service.deleteUserForIndex(Id).subscribe();    
 
       } else {
-        window.alert('Pareces indeciso');
       }
    
   }
