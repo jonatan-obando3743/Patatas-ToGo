@@ -6,6 +6,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 export function HttploaderFactory (http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -15,6 +16,7 @@ export function HttploaderFactory (http: HttpClient){
     AppComponent
   ],
   imports: [
+    NgSelectModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

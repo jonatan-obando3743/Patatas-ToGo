@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const MAIN = '/users';
+const MAIN = '/login';
 
 const routes: Routes = [
   { path: '', redirectTo: MAIN, pathMatch: 'full' },

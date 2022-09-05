@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { forkJoin } from 'rxjs';
 import { SubscribersService } from './shared/services/subscribers/subscribers.service';
 
 @Component({
@@ -13,17 +14,20 @@ export class CreateSubscribersComponent implements OnInit {
   public Idearly: any;
   public valorEmail = true;
   public ObjeSuscriber: any;
-
+  public lisCountries = [];
+  public selectedCar: any;
+  public loading: any;
   profileForm = new FormGroup({
     Name: new FormControl('', [Validators.required]),
-    Email: new FormControl('', [Validators.required]),
-    ContryCode: new FormControl('', [Validators.required]),
-    ContryName: new FormControl('', [Validators.required]),
-    Phonecode: new FormControl('', [Validators.required]),
-    phomeNumber: new FormControl('', [Validators.required]),
-    JobTitle: new FormControl('', [Validators.required]),
-    Area: new FormControl('', [Validators.required]),
+    Email: new FormControl(''),
+    ContryCode: new FormControl(''),
+    ContryName: new FormControl(''),
+    Phonecode: new FormControl(''),
+    phomeNumber: new FormControl(''),
+    JobTitle: new FormControl(''),
+    Area: new FormControl(''),
   });
+
 
   constructor(
     private readonly service: SubscribersService,
@@ -31,8 +35,37 @@ export class CreateSubscribersComponent implements OnInit {
     private translate: TranslateService,
     private activatedRoute: ActivatedRoute
   ) {}
-  ngOnInit(): void {}
-  onSubmit() {
+  ngOnInit(): void {
+    this.loading = true;
+    const getDeps = forkJoin({
+      AllAlerTypes:  this.service.getListCountries(),
+    });
+    getDeps.subscribe(
+      resp => {
+        this.lisCountries = resp.AllAlerTypes.Data;
+        this.loading = false;
+      },
+      error => {
+        this.loading = false;
+    });
+    setTimeout(() => {
+      console.log(this.lisCountries)
+    }, 1500);
+   
+} 
+ Validator(){
+  if (this.profileForm.valid){
+    this.onSubmit() 
+    
+  }else {
+    
+      window.confirm('Algunos campos tienen valores incorrectos o incompletos, vuelva al formulario y corríjalos');
+     
+   
+  }
+ }
+
+onSubmit() {
     const Object = {
       Subscribers: [
         {
@@ -51,6 +84,7 @@ export class CreateSubscribersComponent implements OnInit {
 
     this.service.createSubcribers(Object).subscribe(
       (res: any) => {
+
         this.router.navigateByUrl('/users/list');
       },
       (error) => {
@@ -59,14 +93,4 @@ export class CreateSubscribersComponent implements OnInit {
     );
   }
 
-  creacteNewUser() {
-    if (this.profileForm.status) {
-      this.redirectToListUsers();
-    } else {
-    }
-  }
-
-  public redirectToListUsers(): void {
-    this.router.navigateByUrl('/users/list');
-  }
 }

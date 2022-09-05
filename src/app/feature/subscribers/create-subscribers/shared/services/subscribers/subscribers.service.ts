@@ -50,6 +50,12 @@ export class SubscribersService {
     });
   }
 
+  getListCountries(): Observable<any> {
+    return this.http.get<any>(urlAPI + 'countries/', {
+      headers: httpHeaders,
+    });
+  }
+
   deleteUserForIndex(index: number): Observable<any> {
     return this.http.delete<any>(urlAPI + 'subscribers/' + index, {
       headers: httpHeaders,

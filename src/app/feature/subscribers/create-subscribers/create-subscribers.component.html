@@ -8,10 +8,12 @@
         placeholder=" {{'Email'| translate}}">
       <input class="controls" formControlName="ContryCode" type="text" name="correo" id="correo"
         placeholder="{{'Contry Code'| translate}}">
-      <input class="controls" formControlName="ContryName" type="text" name="correo" id="correo"
-        placeholder="{{'Contry Name'| translate}}">
-      <input class="controls" formControlName="Phonecode" type="text" name="correo" id="correo"
-        placeholder="{{'Phone code'| translate}}">
+        <ng-select #activityNgSelect id="Warnings_type" class="controls" formControlName="ContryCode" [dropdownPosition]="'bottom'" [loading]="loading" bindLabel="Code"[items]="lisCountries" bindValue="Code"  placeholder="{{'Contry Code' | translate }}" clearAllText="Clear">
+        </ng-select>
+        <ng-select #activityNgSelect id="Warnings_type" class="controls" formControlName="ContryCode" [dropdownPosition]="'bottom'" [loading]="loading" bindLabel="Name"[items]="lisCountries" bindValue="Name"  placeholder="{{'Contry Name' | translate }}" clearAllText="Clear">
+        </ng-select>
+        <ng-select #activityNgSelect id="Warnings_type" class="controls" formControlName="Phonecode" [dropdownPosition]="'bottom'" [loading]="loading" bindLabel="PhoneCode"[items]="lisCountries" bindValue="PhoneCode"  placeholder="{{'Phone code' | translate }}" clearAllText="Clear">
+        </ng-select>
       <input class="controls" formControlName="phomeNumber" type="number" name="correo" id="correo"
         placeholder="{{'phome Number'| translate}}">
       <input class="controls" formControlName="JobTitle" type="text" name="correo" id="correo"
@@ -19,7 +21,7 @@
       <input class="controls" formControlName="Area" type="text" name="correo" id="correo"
         placeholder="{{'Area'| translate}}">
 
-      <input class="botons" type="submit" (click)="onSubmit()" value="{{'Register'| translate}}">
+      <input class="botons" type="submit" (click)="Validator()" value="{{'Register'| translate}}">
     </form>
   </section>
 
