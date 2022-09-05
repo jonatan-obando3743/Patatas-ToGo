@@ -40,24 +40,16 @@ export class EditSubscribersComponent implements OnInit {
           this.service.getUsers(this.Idearly.id).subscribe((x) => {
             this.ObjeSuscriber = x;
           });
+          
           setTimeout(() => {
+            console.log(this,this.ObjeSuscriber)
             this.edictForm.get('Name')?.setValue(this.ObjeSuscriber.Name);
             this.edictForm.get('Email')?.setValue(this.ObjeSuscriber.Email);
-            this.edictForm
-              .get('ContryCode')
-              ?.setValue(this.ObjeSuscriber.CountryCode);
-            this.edictForm
-              .get('ContryName')
-              ?.setValue(this.ObjeSuscriber.ContryName);
-            this.edictForm
-              .get('Phonecode')
-              ?.setValue(this.ObjeSuscriber.Phonecode);
-            this.edictForm
-              .get('phomeNumber')
-              ?.setValue(this.ObjeSuscriber.PhoneNumber);
-            this.edictForm
-              .get('JobTitle')
-              ?.setValue(this.ObjeSuscriber.JobTitle);
+            this.edictForm.get('ContryCode')?.setValue(this.ObjeSuscriber.CountryCode);
+            this.edictForm.get('ContryName')?.setValue(this.ObjeSuscriber.ContryName);
+            this.edictForm.get('Phonecode')?.setValue(this.ObjeSuscriber.Phonecode);
+            this.edictForm.get('phomeNumber')?.setValue(this.ObjeSuscriber.PhoneNumber);
+            this.edictForm.get('JobTitle')?.setValue(this.ObjeSuscriber.JobTitle);
             this.edictForm.get('Area')?.setValue(this.ObjeSuscriber.Area);
           }, 350);
 
@@ -82,7 +74,14 @@ export class EditSubscribersComponent implements OnInit {
       Topics: [],
     };
 
-    this.service.editSubcribers(Object, this.Idearly.id).subscribe();
+    this.service.editSubcribers(Object, this.Idearly.id).subscribe(
+      (res: any) => {
+        this.router.navigateByUrl('/users/list');
+      },
+      (error) => {
+        window.confirm(error.error.error);
+      }
+    );
   }
 
   creacteNewUser() {
